@@ -16,9 +16,11 @@
 {% block content %}
 
   {% set year_range = [] %}
-  {% for year in range(dates[-1].date.year, dates[0].date.year + 1) %}
-    {% if year_range.append(year) %}{% endif %}
-  {% endfor %}
+  {% if dates %} 
+   {% for year in range(dates[-1].date.year, dates[0].date.year + 1) %}
+     {% if year_range.append(year) %}{% endif %}
+   {% endfor %}
+  {% endif %}
   {% set year_range = year_range[::-1] %}
 
   <div class="tabbable tabs-left">
